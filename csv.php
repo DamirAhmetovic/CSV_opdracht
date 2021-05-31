@@ -1,9 +1,27 @@
-<?
-    $file = "Postcode.txt";
-    $contents = file_get_contents($file);
-    $lines = explode("\n", $contents); 
+<?php
 
-    foreach($lines as $Postcode) {
-        echo $Postcode; ?>
-        <br>
-    <? } ?>
+
+function PostcodeCheck($postcode)
+{
+    $remove = str_replace(" ","", $postcode);
+    $upper = strtoupper($remove);
+
+    if( preg_match("/^\W*[1-9]{1}[0-9]{3}\W*[a-zA-Z]{2}\W*$/",  $upper)) {
+        return $upper;
+    } else {
+        return false;
+    }
+}
+
+
+$postcode = "4422AF";
+
+
+
+if( PostcodeCheck($postcode) !== false ) {
+    echo "Geldige : " . PostcodeCheck($postcode);
+} else {
+    echo "Ongeldige";
+}
+
+?>
