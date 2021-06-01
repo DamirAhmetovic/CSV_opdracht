@@ -14,7 +14,7 @@ function PostcodeCheck($postcode)
 }
 
 
-$postcode = "4422AF";
+$postcode = "abcd12";
 
 
 
